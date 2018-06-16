@@ -1,0 +1,91 @@
+<% include partials/headCliente %>
+
+
+<div class="container">
+  <div class="row p-5">
+    <% for(var i = 0; i < games.length; i++) { %>
+      <div class="col-md-4">
+        <div class="p-4">
+          <div class="card">
+            <img src="<%= games[i].cover %>" class="card-img-top">
+            <div class="card-body">
+              <a href="/game/<%= games[i]._id %>" style="text-decoration:none"><h3 class="card-title"><%= games[i].title %></h3></a> 
+              <p class="<%= games[i].stock ? 'card-text': 'card-text text-muted' %>"><strong><%= games[i].stock ? 'Stock' : 'No stock' %></strong></p>
+              <div class="card-image">
+                <a href="#"><i class="far fa-star"></i></a> 
+                <% if(games[i].stock == true) { %>
+                    <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                <% } else { %> 
+                      <i class="fas fa-shopping-cart"></i>
+                 <% } %>                 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% } %>
+  </div>
+
+    <% if(pages > 0) { %> 
+      <nav class="nav justify-content-center">
+        <ul class="pagination">
+          <!-- FIRST ITEM -->
+          <% if(current == 1) { %>
+            <li class="page-item disabled">
+              <a class="page-link" href="#">First</a>
+            </li>
+          <% } else { %>
+            <li class="page-item">
+              <a class="page-link" href="/games/1">First</a>
+            </li>
+          <% } %>
+          <!-- ITEMS  -->
+          <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+          <% if(i !== 1) { %>
+            <li class="page-item disabled">
+              <a class="page-link" href="#">...</a>
+            </li>
+          <% } %>
+          <% for(; i <= (Number(current) + 4) && i <= pages; i++) { %>
+            <% if(i == current) { %>
+              <li class="page-item active">
+                <a class="page-link" href="<%= i %>">
+                  <%= i %>
+                </a>
+              </li>
+            <% } else { %>
+              <li class="page-item">
+                <a class="page-link" href="/games/<%= i %>">
+                  <%= i %>
+                </a>
+              </li>
+            <% } %>
+            <% if (i == Number(current) + 4 && i < pages) { %>
+               <li class="page-item disabled">
+                 <a class="page-link" href="#">...</a>
+               </li>
+            <% } %>
+          <% } %>
+          <!-- LAST ITEM -->
+          <% if(current == pages) { %>
+            <li class="page-item disabled">
+              <a class="page-link" href="#">
+                Last
+              </a>
+            </li>
+          <% } else { %>
+            <li class="page-item">
+              <a class="page-link" href="/games/<%= pages %>">
+                Last
+              </a>
+            </li>
+          <% } %>
+        </ul>
+      </nav>
+    <% } %>
+  </div>
+</div>
+
+
+</body>
+</html>

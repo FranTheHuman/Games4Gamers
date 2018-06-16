@@ -1,0 +1,30 @@
+<% include partials/headAdmin %>
+    <h1 class="text-center" >Accounts</h1>
+<div class="container">
+  <div class="row">
+ 
+    <% for(var i = 0; i < users.length; i++) { %>
+     <% if(users[i].Local.email !== 'thefluxporter@gmail.com' ) { %>
+      <% if(users[i].Local.email !== usuario.Local.email) { %>
+      <div class="col-md-4">
+        <div class="p-4">
+          <div class="card">
+            <div class="card-body">
+              <h3 class="card-title"><%= users[i].Local.username %></h3>
+              <p class="card-text"><%= users[i].Local.email %></p>
+              <p class="card-text">Create date: <%= users[i].Local.create_at %></p>
+              <p class="card-text">Last Login date: <%= users[i].Local.last_login %></p>
+              <p class="<%= users[i].Local.admin ? 'card-text': '' %>"><strong><%= users[i].Local.admin ? 'Admin' : '' %></strong></p>
+              <a id="delete" class="btn btn-danger" href="/ban/<%=users[i]._id%>">Ban</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% } %>
+    <% } %>
+  <% } %>
+  </div>
+
+
+</body>
+</html>

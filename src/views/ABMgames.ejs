@@ -1,0 +1,64 @@
+<% include partials/headAdmin %>
+    
+    <div class="container">
+        <div class="row">
+                    <form action="/add" method="POST" enctype="multipart/form-data">
+            <legend>Add a game</legend>
+            <div class="form-group">
+                <input placeholder="Title" type="text" id="titulo" class="form-control" name="title" >
+            </div>
+            <div class="form-group">
+                <select name="categoria" id="categoria" class="btn btn-white dropdown-toggle">
+                    <option value="Accion">Acción</option>
+                    <option value="Aventura">Aventura</option>
+                    <option value="Cooperativa">Cooperativa</option>
+                    <option value="FPS/FPP">FPS / FPP</option>
+                    <option value="SurviveHorror">Survive Horror</option>
+                    <option value="MMO">MMO</option>
+                    <option value="Carreras">Carreras</option>
+                    <option value="RPG">RPG</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input placeholder="Price" type="number" min="0" max="2000" id="precio" class="form-control" name="precio" required>
+            </div>
+            <div class="form-group">
+            <label for="cover">Cover</label>
+                <input type="file" name="imagen">
+            </div>
+            <button class="btn btn-primary">
+                Add
+            </button>            
+        </form>
+        <hr>
+        <table class="table table-bordered table-hover mt-4">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (var i = 0; i < games.length; i++) { %>
+                    <tr> 
+                        <td><%= i + 1 %></td>
+                        <td><strong><%= games[i].title %></strong></td>
+                        <td><%= games[i].category %></td>
+                        <td><%= games[i].price %></td>
+                        <td> <a class="<%= games[i].stock ? 'btn btn-success': 'btn btn-dark' %>" href="/turn/<%=games[i]._id%>">Stock</a> 
+                             <a id="delete" class="btn btn-danger" href="/delete/<%=games[i]._id%>">DELETE</a> 
+                             <a id="update" class="btn btn-secondary" href="/update/<%= games[i]._id %>">EDIT</a></td>
+
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+        </div>
+    </div>
+
+   <script src="/js/adm.js"></script>
+
+</body>
+</html>

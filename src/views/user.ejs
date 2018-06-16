@@ -1,0 +1,29 @@
+    <% include partials/headCliente %>
+
+    <div class="container">
+        <header class="text-center">
+            <h1>Profile Page of <%= user.Local.username %></h1>
+        </header>
+
+        <hr>
+
+        <div class="container">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title"> <span class="fa fa-user"></span> Local</h3>
+                        <p>
+                            <strong>Id</strong>: <%= user._id %> <br>
+                            <strong>Name</strong>: <%= user.Local.username %> <br>
+                            <strong>Email</strong>: <%= user.Local.email %> <br>
+                            <strong>Password</strong>: <%= user.Local.password %> <br>
+                        </p>
+                        <a href="/logout" class="btn btn-dark">Logout</a>
+                        <a href="/deleteUser" class="btn btn-danger">Delete Account</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

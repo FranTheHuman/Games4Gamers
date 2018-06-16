@@ -1,0 +1,32 @@
+<% include partials/headCliente %>
+
+        <div class="container">
+
+        <div class="container">
+            <div class="col-sm-6">
+                <div class="card">
+                     
+                        <div class="card-body">
+                        <h3 class="card-title"> <span class="fa fa-user"></span></h3>
+                        <p>
+                            <strong>Title</strong>: <%= game.title %> <br>
+                            <strong>Category</strong>: <%= game.category %> <br>
+                            <strong>Price</strong>: <%= game.price %> <br>
+                            <p class="<%= game.stock ? 'card-text': 'card-text text-muted' %>"><strong><%= game.stock ? 'Stock' : 'No stock' %></strong></p>
+                            <div class="card-image">
+                            <a href="#"><i class="far fa-star"></i></a> 
+                                <% if(game.stock == true) { %>
+                                    <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                                <% } else { %> 
+                                    <i class="fas fa-shopping-cart"></i>
+                                <% } %>                 
+                            </div>
+                        </p>
+                        <a href="#" class="btn btn-primary">Add a Comment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

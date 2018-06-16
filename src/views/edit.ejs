@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>EDIT GAME</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <!--BOOSTRAP-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <!--FONTAWESOME-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <!--NAVCLIENTE CSS-->
+    <link rel="stylesheet" href="css/nav.css">
+    <!--GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Poor+Story" rel="stylesheet">
+  </head>
+  <body>
+  
+<h1 class="text-center mt-5">Edit Game</h1>
+    <div class="container">
+        <div class="row">
+          <div class="col-md-5 offset-md-3">
+            <div class="card">
+              <div class="card-body">
+                <form action="/update/<%= game._id %>" method="post">
+                  <div class="form-group">
+                    <input class="form-control" type="text" name="title" placeholder="Title" value="<%= game.title %>">
+                  </div>
+                  <div class="form-group">
+                      <select name="categoria" id="categoria" class="btn btn-white dropdown-toggle" selected="<%= game.category%>">
+                          <option value="Accion">Acción</option>
+                          <option value="Aventura">Aventura</option>
+                          <option value="Cooperativa">Cooperativa</option>
+                          <option value="FPS/FPP">FPS / FPP</option>
+                           <option value="SurviveHorror">Survive Horror</option>
+                          <option value="MMO">MMO</option>
+                          <option value="Carreras">Carreras</option>
+                          <option value="RPG">RPG</option>
+                      </select>
+                  </div>
+                  <div class="form-group">
+                      <input placeholder="Price" type="number" id="precio" class="form-control" name="precio" value="<%= game.price %>">
+                  </div>
+                  <button class="btn btn-primary btn-block mt-2" type="submit">
+                    Update 
+                  </button>
+                </form>
+              </div>
+              <a id="volver" class="btn btn-info " href="/ABMcatalogo">RETURN</a> 
+            </div>
+          </div>
+  </div>
+</div>
+  </body>
+</html>
