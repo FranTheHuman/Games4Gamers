@@ -8,8 +8,9 @@ Agregar :
 
 - Capacidad de tener juegos favoritos. 
 - Capacidad de "Comprar juegos".
-- Mejorar el diseno. 
-- Mejorar el manejo de errores. 
+- Mejorar el diseño. 
+- Mejorar el manejo de errores.
+- Subir imagenes. 
 
 # Administrador principal: 
 
